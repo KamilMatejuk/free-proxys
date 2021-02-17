@@ -11,7 +11,7 @@ def extract(file):
     ips = []
     for row in table:
         ip = ':'.join(t.text for t in row.select('td')[:2])
-        ips.append(ip)
+        ips.append(ip + '\n')
     print(f'Extracted {len(ips)} proxys from {url}')
     with open(file, 'w+') as f:
         f.writelines(ips)
